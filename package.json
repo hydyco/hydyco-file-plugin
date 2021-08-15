@@ -7,11 +7,9 @@
     "build": "tsc",
     "start": "tsc-watch --onSuccess \"node ./index.js\""
   },
-  "author": "Rahul Tanwar <mr.rahultanwar@gmail.com>",
-  "license": "ISC",
   "dependencies": {
-    "@hydyco/core": "git+ssh://git@github.com/iamrahultanwar/hydyco-core.git",
-    "@hydyco/mongoose-plugin": "git+ssh://git@github.com/iamrahultanwar/hydyco-mongoose-plugin.git",
+    "@hydyco/core": "^0.0.1",
+    "@hydyco/mongoose-plugin": "^0.0.1",
     "mongoose": "^5.13.0",
     "multer": "^1.4.2"
   },
@@ -21,5 +19,10 @@
     "tsc-watch": "^4.4.0",
     "typescript": "^4.3.4",
     "@types/multer": "^1.4.7"
+  },
+  "author": "Rahul Tanwar <mr.rahultanwar@gmail.com>",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
   }
 }
