@@ -1,6 +1,6 @@
 {
   "name": "@hydyco/file-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "File plugin for file management in hydyco",
   "main": "index.js",
   "scripts": {
@@ -8,8 +8,8 @@
     "start": "tsc-watch --onSuccess \"node ./index.js\""
   },
   "dependencies": {
-    "@hydyco/core": "^0.0.1",
-    "@hydyco/mongoose-plugin": "^0.0.1",
+    "@hydyco/core": "^0.0.2",
+    "@hydyco/mongoose-plugin": "^0.0.2",
     "mongoose": "^5.13.0",
     "multer": "^1.4.2"
   },
