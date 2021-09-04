@@ -1,17 +1,15 @@
 // express router to handle file uploads
 
-import { HydycoFile } from "@hydyco/core";
-import { Router, Request, Response } from "express";
-import * as path from "path";
-import * as multer from "multer";
+import { Router } from "express";
+import path from "path";
+import multer from "multer";
 
-import {HydycoModel} from "@hydyco/mongoose-plugin";
+import data from "./file.json";
+import { HydycoFile, HydycoPath } from "@hydyco/core";
 
-import * as data from "./file.json";
-
-const file = new HydycoFile();
-
-file.writeMappingFile("file", data); // create file json for admin to view it
+const { writeMappingFile } = HydycoFile;
+const { rootPath } = HydycoPath;
+writeMappingFile("file", data); // create file json for admin to view it
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -27,16 +25,16 @@ const upload = multer({ storage: storage });
 
 /**
  * Express router to handle file upload
- * @param {string} uploadDir - Directory for uploading files from root folder
+ * @param {Object} config
  * @return {Router} router - Express router
  */
-const fileUpload = (uploadDir: string = "uploads") => {
+const FilePlugin = ({ uploadDir = "uploads" }, HydycoModel) => {
   var router = Router();
-  const File = new HydycoModel("file").mongooseModel();
+  const File = new HydycoModel("file").Model();
 
   router.get("/file/get/:fileName", (req, res) => {
     const { fileName } = req.params;
-    return res.sendFile(path.join(file.rootPath, uploadDir, fileName));
+    return res.sendFile(path.join(rootPath, uploadDir, fileName));
   });
 
   router.post(
@@ -59,4 +57,4 @@ const fileUpload = (uploadDir: string = "uploads") => {
   return router;
 };
 
-export default fileUpload;
+export { FilePlugin };
