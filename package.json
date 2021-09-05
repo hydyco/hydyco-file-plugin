@@ -1,6 +1,6 @@
 {
   "name": "@hydyco/file-plugin",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "File plugin for file management in hydyco",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "@types/multer": "^1.4.7"
   },
   "peerDependencies": {
-    "@hydyco/core": "^0.0.13"
+    "@hydyco/core": "^0.*.*"
   },
   "author": "Rahul Tanwar <mr.rahultanwar@gmail.com>",
   "license": "ISC",
